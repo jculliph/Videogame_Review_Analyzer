@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Video Game Review Analyzer</title>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+  <span class="w3-bar-item w3-right">Video Game Review Analyzer</span>
+</div>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="\margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> Video Game Review Analyzer Dashboard</b></h5>
+  </header>
+  <br>
+  <strong>
+    {{prediction}}
+  </strong>
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third">
+        <h5>Clusters</h5>
+        <form action="" id="clusters">
+          <input type="radio" id="positiveclusters" name="cluster" value="positive" onClick="changeSrc()">Positive Clusters<br>
+          <input type="radio" id="negativeclusters" name="cluster" value="negative" onClick="changeSrc()">Negative Clusters
+        </form>
+        <img src="../images/fig2.png" id="clusterplot" alt="Clusters">
+      </div>
+      <div class="w3-twothird">
+        <h5>Word Frequency</h5>
+        <form action="" id="bars">
+          <input type="radio" id="positivefreq" name="bar" value="positive" onClick="changeSrc()">Positive Word Frequency<br>
+          <input type="radio" id="negativefreq" name="bar" value="negative" onClick="changeSrc()">Negative Word Frequency
+        </form>
+        <img src="../images/fig3.png" id="bargraph" alt="Word Frequency">
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5>Positive/Negative Pie Chart</h5>
+    <img src="../images/fig5.png" alt="Pie Chart">
+  </div>
+  <div class="w3-container">
+    <h5>Predict Review Rating</h5>
+    <form action="/predict" method="POST">
+      <textarea id="newreview" name="newreview" rows="4" cols="50" placeholder="Enter the new review here and click submit."></textarea>
+      <br>
+      <input type="submit" value="Predict Rating">
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <h4>FOOTER</h4>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    <p>Created by Joshua Cullipher</p>
+  </footer>
+
+  <script>
+  function changeSrc() {
+    if (document.getElementById("positiveclusters").checked) {
+    document.getElementById("clusterplot").src = "../images/fig1.png";
+    } else if (document.getElementById("negativeclusters").checked) {
+    document.getElementById("clusterplot").src = "../images/fig2.png";
+    }
+    if (document.getElementById("positivefreq").checked) {
+    document.getElementById("bargraph").src = "../images/fig3.png";
+    } else if (document.getElementById("negativefreq").checked) {
+    document.getElementById("bargraph").src = "../images/fig4.png";
+    }
+  }
+  </script>
+
+  <!-- End page content -->
+</div>
+</body>
+</html>
