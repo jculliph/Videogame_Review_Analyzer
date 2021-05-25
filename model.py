@@ -49,7 +49,7 @@ def skip_unwanted(pos_tuple):
     return True
 
 
-# This loads the dataset into a pandas dataframe
+# This loads the dataset into a pandas dataframe (Change path as needed)
 df = getDF(r'C:\Users\Joshua\Downloads\Video_Games_5.json.gz')
 
 nltk.download("stopwords")

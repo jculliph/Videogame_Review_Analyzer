@@ -5,6 +5,8 @@ import nltk
 from flask import Flask, render_template, request
 import pickle
 
+nltk.download('punkt')
+
 app = Flask(__name__, static_folder='')
 
 
@@ -31,10 +33,6 @@ def extract_features(text):
             negative_score_words += 1
 
     features.append((positive_score_words, negative_score_words))
-
-    #for item in features:
-     #   for thing in item:
-      #      features_list.append(thing)
 
     return features
 
